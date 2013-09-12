@@ -18,7 +18,6 @@ class Core(object):
 		self.view.show()
 		self.app.exec_()
 
-
 def main():
 
 	core = Core("http://127.0.0.1:5000")
