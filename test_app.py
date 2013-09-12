@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
-from webui import Core
-from multiprocessing import Process
+from webui import Core, WebUI
+from threading import Thread
 
 import os
 
 app = Flask(__name__)
+ui = WebUI(app)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -17,8 +18,5 @@ def run_web_app():
 
 if __name__ == '__main__':
   core = Core("http://127.0.0.1:5000")
-  flask_proc = Process(target=run_web_app)
-  flask_proc.daemon = False
-  flask_proc.start()
+  ui.run()
   core.run()
-  flask_proc.terminate()
