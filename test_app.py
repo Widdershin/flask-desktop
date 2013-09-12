@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-  return os.listdir('.')
+  output = ""
+  for i in os.listdir('.'):
+    output += "{}</br>".format(i)
+  return output
 
 def run_web_app():
   app.run()
@@ -16,7 +19,7 @@ def run_web_app():
 if __name__ == '__main__':
   core = Core("http://127.0.0.1:5000")
   flask_proc = Process(target=run_web_app)
+  flask_proc.daemon = False
   flask_proc.start()
   core.run()
-  flask_proc.join()
-  sys.exit()
+  flask_proc.terminate()
