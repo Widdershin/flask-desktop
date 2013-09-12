@@ -5,7 +5,7 @@ from threading import Thread
 import os
 
 app = Flask(__name__)
-ui = WebUI(app, "http://127.0.0.1:5000", debug=True)
+ui = WebUI(app, debug=True)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

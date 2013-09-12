@@ -5,7 +5,7 @@ import PySide.QtWebKit as web_core
 import PySide.QtGui as gui_core
 
 class WebUI(object):
-	def __init__(self, app, url, debug=False):
+	def __init__(self, app, url="http://127.0.0.1:5000", debug=False):
 		self.flask_app = app
 		self.flask_thread = Thread(target=self._run_flask, args=(debug,))
 		self.flask_thread.daemon = True;
