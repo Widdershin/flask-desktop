@@ -1,3 +1,4 @@
+import pythoncom
 from threading import Thread
 
 import PySide.QtCore as qt_core
@@ -28,4 +29,5 @@ class WebUI(object):
     self.app.exec_()
  
   def _run_flask(self, debug):
+    pythoncom.CoInitialize()
     self.flask_app.run(debug=debug, use_reloader=False)
