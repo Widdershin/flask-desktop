@@ -1,4 +1,3 @@
-import pythoncom
 from threading import Thread
 
 import PySide.QtCore as qt_core
@@ -6,9 +5,9 @@ import PySide.QtWebKit as web_core
 import PySide.QtGui as gui_core
 
 class WebUI(object):
-  def __init__(self, app, url="http://127.0.0.1:5000", debug=False):
+  def __init__(self, app, url="http://127.0.0.1:5000", debug=False, using_win32=False):
     self.flask_app = app
-    self.flask_thread = Thread(target=self._run_flask, args=(debug,))
+    self.flask_thread = Thread(target=self._run_flask, args=(debug, using_win32,))
     self.flask_thread.daemon = True;
 
     self.url = url
@@ -28,6 +27,8 @@ class WebUI(object):
     self.view.show()
     self.app.exec_()
  
-  def _run_flask(self, debug):
-    pythoncom.CoInitialize()
+  def _run_flask(self, debug=False, using_win32=False):
+    if using_win32:
+      import pythoncom
+      pythoncom.CoInitialize()
     self.flask_app.run(debug=debug, use_reloader=False)
