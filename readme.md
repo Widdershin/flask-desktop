@@ -7,7 +7,7 @@ Installation:
 -------
 ```
 easy_install pyside # Windows only, as pip does not install binaries  
-pip install -r requirements.txt
+pip install WebUI
 ```
 
 Usage:

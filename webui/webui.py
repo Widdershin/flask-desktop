@@ -13,7 +13,7 @@ class WebUI(object):
 
     self.url = url
     self.app = gui_core.QApplication([])
-    self.view =  web_core.QWebView(self.app.activeModalWidget())
+    self.view = web_core.QWebView(self.app.activeModalWidget())
 
   def run(self):
     self.run_flask()
