@@ -5,14 +5,14 @@ with open('requirements.txt') as f:
 
 setup(
 	name='WebUI',
-	version='0.1.3',
+	version='0.1.4',
 	author='Nick Johnstone',
 	author_email='ncwjohnstone@gmail.com',
 	packages=['webui'],
 	scripts=['examples/test_app.py'],
-	url='http://pypi.python.org/pypi/WebUI/',
-	license='LICENSE',
+	url='https://github.com/Widdershin/WebUI/',
+	license='MIT',
 	description='WebUI lets you create first class desktop applications in Python with HTML/CSS',
-	long_description=open('readme.md').read(),
+	long_description=open('README').read(),
 	install_requires=required,
 	)
