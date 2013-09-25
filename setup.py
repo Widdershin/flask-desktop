@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
 	name='WebUI',
-	version='0.1.4',
+	version='0.1.6',
 	author='Nick Johnstone',
 	author_email='ncwjohnstone@gmail.com',
 	packages=['webui'],
@@ -13,6 +13,6 @@ setup(
 	url='https://github.com/Widdershin/WebUI/',
 	license='MIT',
 	description='WebUI lets you create first class desktop applications in Python with HTML/CSS',
-	long_description=open('README').read(),
+	long_description=open('README.rst').read(),
 	install_requires=required,
 	)
