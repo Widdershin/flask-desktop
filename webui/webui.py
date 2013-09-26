@@ -6,6 +6,19 @@ import PySide.QtGui as gui_core
 
 default_url = "127.0.0.1"
 
+class ExposedFunc(qt_core.QObject):
+    """A hax class for passing function to JS"""
+
+    def __init__(self, function):
+        super(ExposedFunc, self).__init__()
+        self.function = function
+
+    @qt_core.Slot(result=str)
+    def call(self):
+        return(self.function())
+
+def test():
+    return "Hello World"
 
 class WebUI(object):
     def __init__(self, app, url=default_url, port=5000,
@@ -19,6 +32,12 @@ class WebUI(object):
         self.url = "http://{}:{}".format(url, port)
         self.app = gui_core.QApplication([])
         self.view = web_core.QWebView(self.app.activeModalWidget())
+        self.frame = self.view.page().mainFrame()
+
+    def expose(self, obj, name):
+        q_obj = ExposedFunc(obj)
+        self.frame.addToJavaScriptWindowObject(name, q_obj)
+        self.frame.evaluateJavaScript("{n} = {n}.call".format(n=name))
 
     def run(self):
         self.run_flask()
@@ -38,6 +57,8 @@ class WebUI(object):
         change_setting(settings.OfflineWebApplicationCacheEnabled, True)
         change_setting(settings.PluginsEnabled, True)
 
+        self.expose(test, "testFunc")
+
         self.view.show()
 
         if inspector:
@@ -52,4 +73,5 @@ class WebUI(object):
         if using_win32:
             import pythoncom
             pythoncom.CoInitialize()
-        self.flask_app.run(debug=debug, host=host, port=port, use_reloader=False)
+        self.flask_app.run(debug=debug, host=host, port=port,
+                           use_reloader=False)
