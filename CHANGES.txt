@@ -5,3 +5,4 @@ v0.1.3, 24/09/13 -- Made pythoncom dependency optional.
 v0.1.4, 24/09/13 -- Fixed README, changed URL and fixed license.
 v0.1.5, 25/09/13 -- Added inspector when using debug, and enabled flash and local storage by default
 v0.1.6, 25/09/13 -- Changed readme to .rst
+v0.1.7, 26/09/13 -- Included readme in manifest
