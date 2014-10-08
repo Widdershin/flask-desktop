@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from webui import WebUI
-from threading import Thread
 
 import os
 
