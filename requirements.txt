@@ -3,3 +3,4 @@ Jinja2==2.9.6
 Werkzeug==0.12.1
 MarkupSafe==1.0
 itsdangerous==0.24
+PyQt5==5.8.2
