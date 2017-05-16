@@ -36,12 +36,12 @@ class WebUI(object):
         settings = web_widgets.QWebEngineSettings
         change_setting(settings.LocalStorageEnabled, True)
         change_setting(settings.PluginsEnabled, True)
-		
-		# TODO: These settings aren't implemented in QWebEngineSettings (yet)
-		#change_setting(settings.DeveloperExtrasEnabled, True)
+
+        # TODO: These settings aren't implemented in QWebEngineSettings (yet)
+        #change_setting(settings.DeveloperExtrasEnabled, True)
         #change_setting(settings.OfflineStorageDatabaseEnabled, True)
         #change_setting(settings.OfflineWebApplicationCacheEnabled, True)
-		
+
         self.view.show()
 
         self.app.exec_()
