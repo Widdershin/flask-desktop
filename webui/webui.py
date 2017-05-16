@@ -1,8 +1,10 @@
 from threading import Thread
 
-import PySide.QtCore as qt_core
-import PySide.QtWebKit as web_core
-import PySide.QtGui as gui_core
+import PyQt5.QtCore as core
+import PyQt5.QtWidgets as core_widgets
+import PyQt5.QtWebEngine as web_engine
+import PyQt5.QtWebEngineWidgets as web_widgets
+
 
 default_url = "127.0.0.1"
 
@@ -17,38 +19,35 @@ class WebUI(object):
         self.debug = debug
 
         self.url = "http://{}:{}".format(url, port)
-        self.app = gui_core.QApplication([])
-        self.view = web_core.QWebView(self.app.activeModalWidget())
+        self.app = core_widgets.QApplication([])
+        self.view = web_widgets.QWebEngineView(self.app.activeModalWidget())
 
     def run(self):
         self.run_flask()
-        self.run_gui(inspector=self.debug)
+        self.run_gui()
 
     def run_flask(self):
         self.flask_thread.start()
 
-    def run_gui(self, inspector=False):
-        self.view.load(qt_core.QUrl(self.url))
+    def run_gui(self):
+        self.view.load(core.QUrl(self.url))
 
         change_setting = self.view.page().settings().setAttribute
-        settings = web_core.QWebSettings
-        change_setting(settings.DeveloperExtrasEnabled, True)
+        settings = web_widgets.QWebEngineSettings
         change_setting(settings.LocalStorageEnabled, True)
-        change_setting(settings.OfflineStorageDatabaseEnabled, True)
-        change_setting(settings.OfflineWebApplicationCacheEnabled, True)
         change_setting(settings.PluginsEnabled, True)
-
+		
+		# TODO: These settings aren't implemented in QWebEngineSettings (yet)
+		#change_setting(settings.DeveloperExtrasEnabled, True)
+        #change_setting(settings.OfflineStorageDatabaseEnabled, True)
+        #change_setting(settings.OfflineWebApplicationCacheEnabled, True)
+		
         self.view.show()
-
-        if inspector:
-            self.inspector = web_core.QWebInspector()
-            self.inspector.setPage(self.view.page())
-            self.inspector.show()
 
         self.app.exec_()
 
     def _run_flask(self, host, port, debug=False, using_win32=False):
-        print host
+        print(host)
         if using_win32:
             import pythoncom
             pythoncom.CoInitialize()
