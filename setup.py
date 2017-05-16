@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
 	name='WebUI',
-	version='0.1.7',
+	version='0.2.0',
 	author='Nick Johnstone',
 	author_email='ncwjohnstone@gmail.com',
 	packages=['webui'],
