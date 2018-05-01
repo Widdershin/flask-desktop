@@ -1,14 +1,15 @@
-WebUI
+flask-desktop
 =====
 
-WebUI is a Python module that allows you to convert Flask apps into cross platform desktop apps with three lines of code.
+flask-desktop is a Python module that allows you to convert Flask apps into cross platform desktop apps with three lines of code.
 
 Installation:
 -------------
 ::
 
-    pip install WebUI
+    pip install git+git://github.com/widdershin/flask-desktop.git
 
+I'd like to have flask-desktop available on pip, but currently don't have the time and headspace to make that happen. If you want this to happen, please do it and I'll add you as a collaborator to this repo.
 
 Usage:
 ------
@@ -26,8 +27,8 @@ Usage:
       ui.run() #replace app.run() with ui.run(), and that's it
 
 
-WebUI is powered by PyQt5, and should run on Windows, Mac and Linux. You can even create standalone executables using PyInstaller!
+flask-desktop is powered by PyQt5, and should run on Windows, Mac and Linux. You can even create standalone executables using PyInstaller!
 
 License
 -------
-WebUI is licensed under the MIT License. See the LICENSE file for more details.
+flask-desktop is licensed under the MIT License. See the LICENSE file for more details.
