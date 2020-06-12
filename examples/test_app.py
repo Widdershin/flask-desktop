@@ -6,9 +6,11 @@ import os
 app = Flask(__name__)
 ui = WebUI(app, debug=True)
 
+
 @app.route('/')
 def main():
-  return "Hello world!"
+    return "Hello world!"
+
 
 if __name__ == '__main__':
-  ui.run()
+    ui.run()
