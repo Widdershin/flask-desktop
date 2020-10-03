@@ -12,7 +12,7 @@ default_url = "127.0.0.1"
 
 class WebUI(object):
     def __init__(self, app, url=default_url, port=5000,
-                 debug=False, using_win32=False):
+                 debug=False, using_win32=False, icon_path=None, app_name=None):
         self.flask_app = app
         self.flask_thread = Thread(target=self._run_flask,
                                    args=(url, port, debug, using_win32))
@@ -21,6 +21,8 @@ class WebUI(object):
 
         self.url = "http://{}:{}".format(url, port)
         self.app = core_widgets.QApplication([])
+        self.app.setWindowIcon(gui.QIcon(icon_path))
+        self.app.setApplicationName(app_name)
         self.view = web_widgets.QWebEngineView(self.app.activeModalWidget())
         self.page = CustomWebEnginePage(self.view)
         self.view.setPage(self.page)
