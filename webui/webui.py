@@ -4,6 +4,7 @@ import PyQt5.QtCore as core
 import PyQt5.QtWidgets as core_widgets
 import PyQt5.QtWebEngine as web_engine
 import PyQt5.QtWebEngineWidgets as web_widgets
+import PyQt5.QtGui as gui
 
 
 default_url = "127.0.0.1"
@@ -21,6 +22,8 @@ class WebUI(object):
         self.url = "http://{}:{}".format(url, port)
         self.app = core_widgets.QApplication([])
         self.view = web_widgets.QWebEngineView(self.app.activeModalWidget())
+        self.page = CustomWebEnginePage(self.view)
+        self.view.setPage(self.page)
 
     def run(self):
         self.run_flask()
@@ -42,7 +45,7 @@ class WebUI(object):
         #change_setting(settings.OfflineStorageDatabaseEnabled, True)
         #change_setting(settings.OfflineWebApplicationCacheEnabled, True)
 
-        self.view.show()
+        self.view.showMaximized()
 
         self.app.exec_()
 
@@ -52,3 +55,14 @@ class WebUI(object):
             import pythoncom
             pythoncom.CoInitialize()
         self.flask_app.run(debug=debug, host=host, port=port, use_reloader=False)
+
+class CustomWebEnginePage(web_widgets.QWebEnginePage):
+    def createWindow(self, _type):
+        page = CustomWebEnginePage(self)
+        page.urlChanged.connect(self.open_browser)
+        return page
+
+    def open_browser(self, url):
+        page = self.sender()
+        gui.QDesktopServices.openUrl(url)
+        page.deleteLater()
