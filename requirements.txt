@@ -1,7 +1,7 @@
-Flask==2.0.1
-Jinja2>=3
-Werkzeug>=2.0
+Flask==1.0
+Jinja2==2.11.3
+Werkzeug==0.15.5
 MarkupSafe>=1.1.1
-itsdangerous>=2.0
-PyQt5==5.15.4
-PyQtWebEngine==5.15.4
+itsdangerous==0.24
+PyQt5==5.15.0
+PyQtWebEngine==5.15.2
