@@ -20,4 +20,7 @@ requires = ["Flask==2.0.1",
 "PyQt5==5.15.4",
 "PyQtWebEngine==5.15.4"
 ]
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/flit-&-pypi
