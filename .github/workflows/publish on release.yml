@@ -1,0 +1,28 @@
+name: Python application
+on:
+    release:
+        types: [created]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flit
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: publish with flit to pypi
+      env: 
+          FLIT_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          FLIT_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+          python -m flit publish
