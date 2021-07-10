@@ -8,7 +8,7 @@ author = "Nick Johnstone"
 author-email = "ncwjohnstone@gmail.com"
 home-page = "https://github.com/Widdershin/WebUI/"
 classifiers = [ "Programming Language :: Python :: 3",
-        "License :: MIT License",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",]
 description-file = "README.md"
 
