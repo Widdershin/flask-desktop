@@ -12,3 +12,12 @@ classifiers = [ "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",]
 description-file = "README.md"
 
+requires = ["Flask==2.0.1",
+"Jinja2>=3",
+"Werkzeug>=2.0",
+"MarkupSafe>=1.1.1",
+"itsdangerous>=2.0",
+"PyQt5==5.15.4",
+"PyQtWebEngine==5.15.4"
+]
+
