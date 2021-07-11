@@ -4,14 +4,14 @@ flask-desktop is a Python module that allows you to convert Flask apps into cros
 
 ## Installation:
 
-::
-
-    pip install webui
+```
+pip install webui
+```
 
 
 ## Usage:
 
-::
+```python
 
     from webui import WebUI # Add WebUI to your imports
     from flask import Flask, render_template, request
@@ -23,6 +23,7 @@ flask-desktop is a Python module that allows you to convert Flask apps into cros
 
     if __name__ == '__main__':
       ui.run() #replace app.run() with ui.run(), and that's it
+```
 
 flask-desktop is powered by PyQt5, and should run on Windows, Mac and Linux. You can even create standalone executables using PyInstaller!
 
