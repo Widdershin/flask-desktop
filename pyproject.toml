@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "webui"
+author = "Nick Johnstone"
+author-email = "ncwjohnstone@gmail.com"
+home-page = "https://github.com/Widdershin/WebUI/"
+classifiers = [ "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",]
+description-file = "README.md"
+
+requires = ["Flask==2.0.1",
+"Jinja2>=3",
+"Werkzeug>=2.0",
+"MarkupSafe>=1.1.1",
+"itsdangerous>=2.0",
+"PyQt5==5.15.4",
+"PyQtWebEngine==5.15.4"
+]
+
