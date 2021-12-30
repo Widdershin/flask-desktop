@@ -25,7 +25,7 @@ I'd like to have flask-desktop available on pip, but currently don't have the ti
     if __name__ == '__main__':
       ui.run() #replace app.run() with ui.run(), and that's it
 
-flask-desktop is powered by PyQt5, and should run on Windows, Mac and Linux. You can even create standalone executables using PyInstaller!
+flask-desktop is powered by PySide2, and should run on Windows, Mac and Linux. You can even create standalone executables using PyInstaller!
 
 ## License
 

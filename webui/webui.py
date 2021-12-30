@@ -1,10 +1,10 @@
 from threading import Thread
 
-import PyQt5.QtCore as core
-import PyQt5.QtWidgets as core_widgets
-import PyQt5.QtWebEngine as web_engine
-import PyQt5.QtWebEngineWidgets as web_widgets
-import PyQt5.QtGui as gui
+import PySide2.QtCore as core
+import PySide2.QtWidgets as core_widgets
+import PySide2.QtWebEngine as web_engine
+import PySide2.QtWebEngineWidgets as web_widgets
+import PySide2.QtGui as gui
 
 
 default_url = "127.0.0.1"
