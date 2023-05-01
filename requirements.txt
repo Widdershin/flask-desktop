@@ -1,4 +1,4 @@
-Flask==1.0
+Flask==2.3.2
 Jinja2==2.11.3
 Werkzeug==0.15.5
 MarkupSafe>=1.1.1
